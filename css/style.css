@@ -1,0 +1,687 @@
+/* line 1, scss_folder/base/_base.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* line 6, scss_folder/base/_base.scss */
+html {
+  font-size: 62.5%; }
+
+/* line 9, scss_folder/base/_base.scss */
+body {
+  box-sizing: border-box; }
+
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+/* line 1, scss_folder/base/_typography.scss */
+body {
+  font-family: 'Lato',sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #777;
+  line-height: 1.7;
+  padding: 3rem; }
+
+/* line 10, scss_folder/base/_typography.scss */
+.heading-primary {
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 3.5rem; }
+  /* line 15, scss_folder/base/_typography.scss */
+  .heading-primary--main {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    font-size: 6rem;
+    animation-name: moveFromLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  /* line 25, scss_folder/base/_typography.scss */
+  .heading-primary--sub {
+    display: block;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 1.1rem;
+    animation-name: moveFromRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+
+/* line 37, scss_folder/base/_typography.scss */
+.heading-secondary {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 700;
+  display: inline-block;
+  background-image: Linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s; }
+  /* line 48, scss_folder/base/_typography.scss */
+  .heading-secondary:hover {
+    transform: skewX(20deg) skewY(2deg) scale(1.1);
+    color: #55c57a;
+    text-shadow: 0.3rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+/* line 55, scss_folder/base/_typography.scss */
+.heading-tertiary {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700; }
+
+/* line 61, scss_folder/base/_typography.scss */
+.paragraph {
+  font-size: 1.3rem;
+  font-weight: 400; }
+  /* line 64, scss_folder/base/_typography.scss */
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+/* line 69, scss_folder/base/_typography.scss */
+.heading-4 {
+  transition: all .2s;
+  font-size: 1.7rem; }
+  /* line 73, scss_folder/base/_typography.scss */
+  .heading-4:hover {
+    transform: skewX(20deg) skewY(2deg) scale(1.1);
+    text-shadow: 0.3rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+/* line 1, scss_folder/base/_utilities.scss */
+.u-center-text {
+  text-align: center; }
+
+/* line 5, scss_folder/base/_utilities.scss */
+.u-margin-top-huge {
+  margin-bottom: 10rem; }
+
+/* line 9, scss_folder/base/_utilities.scss */
+.u-margin-bottom-large {
+  margin-bottom: 8rem !important; }
+
+/* line 13, scss_folder/base/_utilities.scss */
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+
+/* line 17, scss_folder/base/_utilities.scss */
+.u-margin-bottom-small {
+  margin-bottom: 1.2rem; }
+
+/* line 1, scss_folder/components/_bg-video.scss */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+  opacity: .15; }
+  /* line 10, scss_folder/components/_bg-video.scss */
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
+/* line 2, scss_folder/components/_btn.scss */
+.btn, .btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  border: none; }
+
+/* line 16, scss_folder/components/_btn.scss */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+  /* line 20, scss_folder/components/_btn.scss */
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
+
+/* line 27, scss_folder/components/_btn.scss */
+.btn:active, .btn:focus {
+  outline: none;
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2); }
+
+/* line 33, scss_folder/components/_btn.scss */
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+  /* line 37, scss_folder/components/_btn.scss */
+  .btn--white::after {
+    background-color: #fff; }
+
+/* line 42, scss_folder/components/_btn.scss */
+.btn--green {
+  background-color: #55c57a;
+  color: #fff; }
+  /* line 46, scss_folder/components/_btn.scss */
+  .btn--green::after {
+    background-color: #55c57a; }
+
+/* line 51, scss_folder/components/_btn.scss */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s; }
+
+/* line 64, scss_folder/components/_btn.scss */
+.btn--animated {
+  animation: moveFromBottom 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards; }
+
+/* line 73, scss_folder/components/_btn.scss */
+.btn-txt:visited, .btn-txt:link {
+  color: #55c57a;
+  font-size: 1.6rem;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  display: inline-block;
+  padding: 3px;
+  transition: all .2s; }
+
+/* line 85, scss_folder/components/_btn.scss */
+.btn-txt:hover {
+  background-color: #55c57a;
+  color: #fff;
+  box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px); }
+
+/* line 92, scss_folder/components/_btn.scss */
+.btn-txt:active {
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+/* line 1, scss_folder/components/_card.scss */
+.card {
+  perspective: 150rem;
+  position: relative;
+  height: 52rem; }
+  /* line 7, scss_folder/components/_card.scss */
+  .card__side {
+    color: #fff;
+    height: 52rem;
+    transition: all 0.8s ease;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0rem 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  /* line 22, scss_folder/components/_card.scss */
+  .card__side--front {
+    background-color: white; }
+  /* line 27, scss_folder/components/_card.scss */
+  .card__side--rear {
+    transform: rotateY(180deg); }
+    /* line 29, scss_folder/components/_card.scss */
+    .card__side--rear--1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+    /* line 33, scss_folder/components/_card.scss */
+    .card__side--rear--2 {
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+    /* line 37, scss_folder/components/_card.scss */
+    .card__side--rear--3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+  /* line 43, scss_folder/components/_card.scss */
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  /* line 48, scss_folder/components/_card.scss */
+  .card:hover .card__side--rear {
+    transform: rotateY(0); }
+  /* line 53, scss_folder/components/_card.scss */
+  .card__image {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 19rem, 0 23rem);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px; }
+    /* line 61, scss_folder/components/_card.scss */
+    .card__image--1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url("../img/nat-5.jpg"); }
+    /* line 66, scss_folder/components/_card.scss */
+    .card__image--2 {
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url("../img/nat-6.jpg"); }
+    /* line 71, scss_folder/components/_card.scss */
+    .card__image--3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url("../img/nat-7.jpg"); }
+  /* line 78, scss_folder/components/_card.scss */
+  .card__heading {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%; }
+  /* line 90, scss_folder/components/_card.scss */
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    /* line 95, scss_folder/components/_card.scss */
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)); }
+    /* line 99, scss_folder/components/_card.scss */
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)); }
+    /* line 103, scss_folder/components/_card.scss */
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.8), rgba(86, 67, 250, 0.8)); }
+  /* line 109, scss_folder/components/_card.scss */
+  .card__text {
+    padding: 1rem; }
+    /* line 112, scss_folder/components/_card.scss */
+    .card__text ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      /* line 120, scss_folder/components/_card.scss */
+      .card__text ul li {
+        color: #777;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.8rem; }
+        /* line 125, scss_folder/components/_card.scss */
+        .card__text ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
+  /* line 135, scss_folder/components/_card.scss */
+  .card__CTA {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%; }
+  /* line 145, scss_folder/components/_card.scss */
+  .card__price-box {
+    text-align: center;
+    margin: 8rem; }
+    /* line 150, scss_folder/components/_card.scss */
+    .card__price-box--only {
+      font-size: 1.5rem;
+      text-transform: uppercase; }
+    /* line 154, scss_folder/components/_card.scss */
+    .card__price-box--value {
+      font-size: 6rem;
+      font-weight: 100; }
+
+/* line 1, scss_folder/components/_composite-images.scss */
+.composition {
+  position: relative; }
+  /* line 4, scss_folder/components/_composite-images.scss */
+  .composition__photo {
+    width: 50%;
+    position: absolute;
+    border-radius: .5rem;
+    box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 1rem; }
+    /* line 13, scss_folder/components/_composite-images.scss */
+    .composition__photo--p1 {
+      top: 0;
+      left: 0; }
+    /* line 18, scss_folder/components/_composite-images.scss */
+    .composition__photo--p2 {
+      top: 3rem;
+      right: 1rem; }
+    /* line 22, scss_folder/components/_composite-images.scss */
+    .composition__photo--p3 {
+      top: 10rem;
+      right: 10rem;
+      z-index: 15; }
+    /* line 27, scss_folder/components/_composite-images.scss */
+    .composition__photo:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      z-index: 20;
+      box-shadow: 0px 1.5rem 2rem rgba(0, 0, 0, 0.4);
+      outline: 1rem solid #55c57a; }
+  /* line 34, scss_folder/components/_composite-images.scss */
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95); }
+
+/* line 1, scss_folder/components/_featue-box.scss */
+.featue-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: 0 1rem 4em rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  border-radius: 3px;
+  transition: transform .3s; }
+  /* line 10, scss_folder/components/_featue-box.scss */
+  .featue-box__icon {
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    -webkit-background-clip: text;
+    color: transparent; }
+  /* line 18, scss_folder/components/_featue-box.scss */
+  .featue-box:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
+
+/* line 1, scss_folder/components/_form.scss */
+.form {
+  padding: 3rem; }
+  /* line 4, scss_folder/components/_form.scss */
+  .form__group {
+    width: 46%; }
+    /* line 6, scss_folder/components/_form.scss */
+    .form__group:not(:last-child) {
+      margin-bottom: 2rem; }
+  /* line 11, scss_folder/components/_form.scss */
+  .form__input {
+    font-size: 1.7rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1.5rem 2rem;
+    border: none;
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid transparent;
+    transition: all .3s; }
+    /* line 21, scss_folder/components/_form.scss */
+    .form__input--Name {
+      text-transform: capitalize; }
+    /* line 25, scss_folder/components/_form.scss */
+    .form__input:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid #55c57a; }
+    /* line 31, scss_folder/components/_form.scss */
+    .form__input:focus:invalid {
+      border-bottom: 3px solid #ff7730; }
+    /* line 35, scss_folder/components/_form.scss */
+    .form__input:-webkit-input-placeholder {
+      color: #999; }
+  /* line 40, scss_folder/components/_form.scss */
+  .form__label {
+    font-size: 1.7rem;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    font-weight: 700;
+    display: block;
+    transition: all .3s; }
+  /* line 48, scss_folder/components/_form.scss */
+  .form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem); }
+  /* line 54, scss_folder/components/_form.scss */
+  .form__radio-group {
+    width: 49%;
+    display: inline-block;
+    font-size: 1.7rem;
+    padding-left: 4rem;
+    position: relative; }
+  /* line 63, scss_folder/components/_form.scss */
+  .form__radio-input {
+    opacity: 0; }
+  /* line 67, scss_folder/components/_form.scss */
+  .form__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 3px solid #55c57a;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 5%; }
+    /* line 77, scss_folder/components/_form.scss */
+    .form__radio-button::after {
+      content: "";
+      display: inline-block;
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #55c57a;
+      opacity: 0;
+      transition: opacity .2s; }
+  /* line 93, scss_folder/components/_form.scss */
+  .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+    opacity: 1; }
+
+/* line 1, scss_folder/components/_story.scss */
+.story {
+  width: 75%;
+  margin: 0 auto;
+  padding: 6rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
+  transform: skewX(-12deg); }
+  /* line 10, scss_folder/components/_story.scss */
+  .story__shape {
+    height: 15rem;
+    width: 15rem;
+    background-color: red;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative; }
+  /* line 23, scss_folder/components/_story.scss */
+  .story__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all .5s; }
+  /* line 29, scss_folder/components/_story.scss */
+  .story__text {
+    transform: skewX(12deg); }
+  /* line 33, scss_folder/components/_story.scss */
+  .story__caption {
+    color: #fff;
+    font-size: 1.7rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all .5s; }
+  /* line 46, scss_folder/components/_story.scss */
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  /* line 51, scss_folder/components/_story.scss */
+  .story:hover .story__img {
+    transform: translateX(-4rem) scale(1.1);
+    filter: blur(3px) brightness(80%); }
+
+/* line 1, scss_folder/layout/_grid.scss */
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  /* line 6, scss_folder/layout/_grid.scss */
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  /* line 2, scss_folder/abstracts/_mixins.scss */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 12, scss_folder/layout/_grid.scss */
+  .row [class^=col-] {
+    float: left; }
+    /* line 15, scss_folder/layout/_grid.scss */
+    .row [class^=col-]:not(:last-child) {
+      margin-right: 6rem; }
+  /* line 20, scss_folder/layout/_grid.scss */
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem)/2); }
+  /* line 24, scss_folder/layout/_grid.scss */
+  .row .col-1-of-3 {
+    width: calc((100% - 2*6rem)/3); }
+  /* line 28, scss_folder/layout/_grid.scss */
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem)/3) + 6rem); }
+  /* line 32, scss_folder/layout/_grid.scss */
+  .row .col-1-of-4 {
+    width: calc((100% - 3*6rem)/4); }
+  /* line 36, scss_folder/layout/_grid.scss */
+  .row .col-2-of-4 {
+    width: calc(2*((100% - 3*6rem)/4) + 6rem); }
+  /* line 40, scss_folder/layout/_grid.scss */
+  .row .col-3-of-4 {
+    width: calc(3*((100% - 3*6rem)/4) + 2*(6rem)); }
+
+/* line 1, scss_folder/layout/_header.scss */
+.header {
+  height: 95vh;
+  background-image: Linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  /* line 9, scss_folder/layout/_header.scss */
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  /* line 14, scss_folder/layout/_header.scss */
+  .header__logo {
+    height: 3.5rem; }
+  /* line 17, scss_folder/layout/_header.scss */
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/* line 1, scss_folder/layout/_footer.scss */
+.footer {
+  background-color: #333;
+  padding: 6rem 4rem; }
+  /* line 7, scss_folder/layout/_footer.scss */
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 8rem; }
+  /* line 16, scss_folder/layout/_footer.scss */
+  .footer__list {
+    font-size: 1.7rem;
+    float: left;
+    list-style: none; }
+  /* line 24, scss_folder/layout/_footer.scss */
+  .footer__item {
+    margin-right: 1.2rem;
+    display: inline-block; }
+  /* line 31, scss_folder/layout/_footer.scss */
+  .footer__link:link, .footer__link:visited {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: all 0.4s; }
+  /* line 39, scss_folder/layout/_footer.scss */
+  .footer__link:active, .footer__link:hover {
+    color: #55c57a;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg) scale(1.2); }
+  /* line 46, scss_folder/layout/_footer.scss */
+  .footer__para {
+    border-top: 1px solid #777;
+    padding-top: 3rem;
+    display: inline-block;
+    color: #ddd;
+    float: right; }
+
+/* line 56, scss_folder/layout/_footer.scss */
+.navigation {
+  border-top: 1px solid #777;
+  padding-top: 3rem;
+  display: inline-block;
+  float: left; }
+
+/* line 1, scss_folder/pages/_home.scss */
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 5rem;
+  margin-top: -35vh; }
+
+/* line 7, scss_folder/pages/_home.scss */
+.section-features {
+  padding: 15rem 3rem;
+  background-image: Linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-7deg);
+  margin-top: -15rem; }
+  /* line 14, scss_folder/pages/_home.scss */
+  .section-features > * {
+    transform: skewY(7deg); }
+
+/* line 19, scss_folder/pages/_home.scss */
+.section-tours {
+  margin-top: -15rem;
+  padding: 25rem 10rem 5rem 10rem;
+  background-color: #f7f7f7; }
+
+/* line 25, scss_folder/pages/_home.scss */
+.section-stories {
+  padding: 3rem;
+  position: relative; }
+
+/* line 32, scss_folder/pages/_home.scss */
+.section-book {
+  padding: 15rem 5rem;
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+
+/* line 38, scss_folder/pages/_home.scss */
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(0, 0, 0, 0) 50%), url(../img/nat-10.jpg);
+  height: 50rem;
+  background-size: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
