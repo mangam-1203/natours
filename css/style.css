@@ -40,6 +40,14 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
+@keyframes move {
+  0% {
+    width: 0%; }
+  50% {
+    width: 50%; }
+  100% {
+    width: 100%; } }
+
 /* line 1, scss_folder/base/_typography.scss */
 body {
   font-family: 'Lato',sans-serif;
@@ -131,7 +139,7 @@ body {
 
 /* line 17, scss_folder/base/_utilities.scss */
 .u-margin-bottom-small {
-  margin-bottom: 1.2rem; }
+  margin-bottom: 1.2rem !important; }
 
 /* line 1, scss_folder/components/_bg-video.scss */
 .bg-video {
@@ -201,7 +209,7 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s; }
+  transition: all .2s; }
 
 /* line 64, scss_folder/components/_btn.scss */
 .btn--animated {
@@ -489,6 +497,77 @@ body {
   .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
     opacity: 1; }
 
+/* line 1, scss_folder/components/_popup.scss */
+.popup {
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100000;
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s; }
+  /* line 13, scss_folder/components/_popup.scss */
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  /* line 18, scss_folder/components/_popup.scss */
+  .popup__cross {
+    position: absolute;
+    transition: all .2s;
+    text-decoration: none;
+    top: 1.2rem;
+    right: 2.2rem;
+    font-size: 2.4rem;
+    color: #777; }
+    /* line 26, scss_folder/components/_popup.scss */
+    .popup__cross:hover {
+      color: #55c57a; }
+  /* line 31, scss_folder/components/_popup.scss */
+  .popup__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.2s 0.2s;
+    width: 75%;
+    background-color: #fff;
+    z-index: 200000;
+    box-shadow: 0rem 4rem 3rem rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    display: table; }
+  /* line 50, scss_folder/components/_popup.scss */
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); }
+  /* line 56, scss_folder/components/_popup.scss */
+  .popup__left {
+    width: 33.33333%;
+    display: table-cell; }
+  /* line 61, scss_folder/components/_popup.scss */
+  .popup__right {
+    width: 66.66666;
+    display: table-cell;
+    vertical-align: middle;
+    overflow: hidden;
+    padding: 2rem 5rem; }
+  /* line 69, scss_folder/components/_popup.scss */
+  .popup__image {
+    display: block;
+    width: 100%; }
+  /* line 73, scss_folder/components/_popup.scss */
+  .popup__para {
+    margin-bottom: 1.8rem;
+    font-size: 1.4rem;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid #eee;
+    hyphens: auto;
+    -webkit-hyphens: auto; }
+
 /* line 1, scss_folder/components/_story.scss */
 .story {
   width: 75%;
@@ -554,10 +633,10 @@ body {
   /* line 12, scss_folder/layout/_grid.scss */
   .row [class^=col-] {
     float: left; }
-    /* line 15, scss_folder/layout/_grid.scss */
+    /* line 16, scss_folder/layout/_grid.scss */
     .row [class^=col-]:not(:last-child) {
       margin-right: 6rem; }
-  /* line 20, scss_folder/layout/_grid.scss */
+  /* line 21, scss_folder/layout/_grid.scss */
   .row .col-1-of-2 {
     width: calc((100% - 6rem)/2); }
   /* line 24, scss_folder/layout/_grid.scss */
@@ -599,6 +678,137 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+
+/* line 2, scss_folder/layout/_navigation.scss */
+.navigation__checkbox {
+  display: none; }
+
+/* line 6, scss_folder/layout/_navigation.scss */
+.navigation__button {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 2000;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  box-shadow: 0px 2px 2rem rgba(0, 0, 0, 0.3); }
+
+/* line 18, scss_folder/layout/_navigation.scss */
+.navigation__background {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  background: radial-gradient(#7ed56f, #28b485);
+  z-index: 1000;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  transition: all 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+/* line 33, scss_folder/layout/_navigation.scss */
+.navigation__nav {
+  z-index: 1500;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  opacity: 0;
+  width: 0%;
+  visibility: hidden;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+/* line 45, scss_folder/layout/_navigation.scss */
+.navigation__list {
+  list-style: none;
+  position: fixed;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 0%; }
+
+/* line 54, scss_folder/layout/_navigation.scss */
+.navigation__item {
+  width: 0%; }
+
+/* line 60, scss_folder/layout/_navigation.scss */
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #eeeeee;
+  padding: 1rem 1rem;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+  background-size: 240%;
+  transition: all 0.4s;
+  letter-spacing: 0.3rem;
+  font-weight: 300; }
+
+/* line 74, scss_folder/layout/_navigation.scss */
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #28b485;
+  transform: translateX(1rem); }
+
+/* line 81, scss_folder/layout/_navigation.scss */
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(39); }
+
+/* line 85, scss_folder/layout/_navigation.scss */
+.navigation__checkbox:checked ~ .navigation__nav {
+  visibility: visible;
+  opacity: 1;
+  height: 100vh;
+  width: 100%; }
+
+/* line 94, scss_folder/layout/_navigation.scss */
+.navigation__checkbox:checked ~ .navigation__nav .navigation__list .navigation__item {
+  width: 100%; }
+
+/* line 101, scss_folder/layout/_navigation.scss */
+.navigation__icon {
+  position: relative;
+  display: inline-block;
+  margin: 3.2rem 2rem; }
+  /* line 105, scss_folder/layout/_navigation.scss */
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: #333333; }
+  /* line 113, scss_folder/layout/_navigation.scss */
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    transition: all .2s; }
+  /* line 119, scss_folder/layout/_navigation.scss */
+  .navigation__icon::before {
+    top: -0.8rem; }
+  /* line 122, scss_folder/layout/_navigation.scss */
+  .navigation__icon::after {
+    top: 0.8rem; }
+
+/* line 128, scss_folder/layout/_navigation.scss */
+.navigation__button:hover .navigation__icon::before {
+  top: -1.1rem; }
+
+/* line 131, scss_folder/layout/_navigation.scss */
+.navigation__button:hover .navigation__icon::after {
+  top: 1.1rem; }
+
+/* line 136, scss_folder/layout/_navigation.scss */
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent; }
+
+/* line 143, scss_folder/layout/_navigation.scss */
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  transform: rotate(135deg);
+  top: 0; }
+
+/* line 150, scss_folder/layout/_navigation.scss */
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  transform: rotate(-135deg);
+  top: 0; }
 
 /* line 1, scss_folder/layout/_footer.scss */
 .footer {
